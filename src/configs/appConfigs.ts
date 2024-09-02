@@ -3,7 +3,7 @@ const environment = {
   dev: "development",
 };
 // change here to chage the environment to prod or dev
-const ENVIRONMENT = environment.dev;
+const ENVIRONMENT = environment.prod;
 export const appConstants = {
   BASE_URL: "https://appanapalli-server.vercel.app/",
   LOGIN_URL: "auth/login",
