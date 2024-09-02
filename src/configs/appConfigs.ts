@@ -5,7 +5,7 @@ const environment = {
 // change here to chage the environment to prod or dev
 const ENVIRONMENT = environment.dev;
 export const appConstants = {
-  BASE_URL: "",
+  BASE_URL: "https://appanapalli-server.vercel.app/",
   LOGIN_URL: "auth/login",
   GET_DONATIONS_URL: "donation",
 };
