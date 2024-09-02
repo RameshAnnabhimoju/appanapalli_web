@@ -1,0 +1,60 @@
+#dashboard-container {
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+}
+#dashboard-body {
+  min-height: 600px;
+  padding: 30px;
+}
+#dashboard-action-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+#dashboard-options {
+  /* max-width: 2300px;
+  max-height: 100px; */
+  width: fit-content;
+  height: fit-content;
+  text-align: right;
+  background: transparent;
+  border: 0;
+  color: var(--color-primary);
+}
+#dashboard-table {
+  --bs-table-bg: transparent; /* or --bs-table-bg: transparent; */
+}
+#dashboard-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+}
+#dashboard-date-range {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  padding: 0 30px;
+}
+.dashboard-action-input {
+  width: 270px;
+  --bs-border-color: var(--color-primary);
+  --bs-body-bg: var(--color-background);
+}
+.form-control {
+  background-color: var(--color-background);
+}
+.dashboard-table-data-action {
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+.dashboard-table-data-action:hover {
+  cursor: pointer;
+}
+#dashboard-pagenation {
+  margin: 0 auto;
+  color: var(--color-primary);
+  --bs-pagination-active-bg: var(--color-primary);
+  --bs-pagination-active-border-color: var(--color-primary);
+  --bs-pagination-color: var(--color-primary);
+}

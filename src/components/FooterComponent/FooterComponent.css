@@ -1,0 +1,7 @@
+#footer-container {
+  background-image: linear-gradient(
+    var(--color-yellow),
+    var(--color-secondary)
+  );
+  height: 120px;
+}

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "NandakamRegular";
+  src: local("NandakamRegular"), url("./assets/fonts/Nandakam_Regular.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "TimmanaRegular";
+  src: local("TimmanaRegular"), url("./assets/fonts/Timmana_Regular.ttf");
+  font-weight: normal;
+}
+:root {
+  /* --color-primary: yellow;
+  --color-secondary: #26247a;
+  --color-background1: #b02080;
+  --color-background2: #62216b;
+  --color-yellow: #014ea1; */
+  --color-primary: #cd2f2f;
+  --color-secondary: #daac2c;
+  --color-background: #fffcc8;
+  --color-yellow: yellow;
+}

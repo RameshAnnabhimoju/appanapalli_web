@@ -1,0 +1,57 @@
+#login-left {
+  display: flex;
+  justify-content: center;
+}
+#login-body-container {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+}
+#login-right {
+  margin: 25px auto;
+}
+.login-input {
+  min-width: 300px;
+  margin-top: 25px;
+  border: 1px var(--color-secondary) solid;
+  border-radius: 8px;
+  overflow: hidden;
+}
+#login-image {
+  object-fit: contain;
+  height: 600px;
+}
+
+.lamp_short {
+  height: 300px;
+}
+.lamp_long {
+  height: 500px;
+}
+#garland_image {
+  background-image: url("../../../assets/images/garland.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  width: 100%;
+  height: 50px;
+}
+#login-background-container {
+  display: flex;
+}
+
+#login-background-container {
+  background-color: var(--color-background);
+}
+#login-heading-text {
+  color: var(--color-secondary);
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+#login_button {
+  width: 100%;
+  margin-top: 30px;
+  background-color: var(--color-primary);
+  border: 1px var(--color-secondary) solid;
+}
+.login-error-text {
+  --bs-secondary-color: var(--color-primary);
+}

@@ -1,0 +1,32 @@
+#header-container {
+  background-image: linear-gradient(
+    var(--color-secondary),
+    var(--color-yellow)
+  );
+  grid-column-start: 1;
+  grid-column-end: 8;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75%;
+  overflow: hidden;
+}
+#header_endow_logo {
+  position: relative;
+  top: 5px;
+}
+.header_logos {
+  width: 150px;
+  margin: 0 30px;
+}
+#header-title {
+  font-family: "TimmanaRegular";
+  font-size: 60px;
+  color: var(--color-primary);
+}
+#header-subtext {
+  font-family: "TimmanaRegular";
+  color: var(--color-primary);
+  font-size: 25px;
+}
