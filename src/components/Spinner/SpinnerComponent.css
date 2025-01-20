@@ -1,0 +1,23 @@
+#spinner-container {
+  z-index: 10;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.6;
+}
+#spinner {
+  position: fixed;
+  top: 48vh;
+  left: 48vw;
+  z-index: 7;
+  color: var(--color-yellow);
+  opacity: 11;
+}
+
+.no-activity {
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
