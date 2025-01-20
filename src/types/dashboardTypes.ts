@@ -1,4 +1,5 @@
 export type donationDataTypes = {
+  _id?: string;
   devotee?: string;
   phone?: string;
   donation?: string;

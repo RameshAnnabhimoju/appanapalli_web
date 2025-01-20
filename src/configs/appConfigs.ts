@@ -2,8 +2,8 @@ const environment = {
   prod: "production",
   dev: "development",
 };
-// change here to chage the environment to prod or dev
-const ENVIRONMENT = environment.prod;
+// change here to change the environment to prod or dev
+const ENVIRONMENT = environment.dev;
 export const appConstants = {
   BASE_URL: "https://appanapalli-server.vercel.app/",
   LOGIN_URL: "auth/login",
@@ -18,5 +18,5 @@ const setAppEnvironment = () => {
 };
 export const appConfiguration = setAppEnvironment();
 export const storageKeys = {
-  AUTH: "EDUCARE_AUTH",
+  AUTH: "APPANAPALLI_AUTH",
 };

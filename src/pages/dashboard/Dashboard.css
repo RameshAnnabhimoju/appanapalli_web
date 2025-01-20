@@ -51,10 +51,16 @@
 .dashboard-table-data-action:hover {
   cursor: pointer;
 }
-#dashboard-pagenation {
+#dashboard-pagination {
   margin: 0 auto;
   color: var(--color-primary);
   --bs-pagination-active-bg: var(--color-primary);
   --bs-pagination-active-border-color: var(--color-primary);
   --bs-pagination-color: var(--color-primary);
+}
+#dashboard-add-donation-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 30px;
+  column-gap: 20px;
 }

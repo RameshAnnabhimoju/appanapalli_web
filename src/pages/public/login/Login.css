@@ -1,3 +1,6 @@
+#login-container {
+  /* overflow: hidden; */
+}
 #login-left {
   display: flex;
   justify-content: center;
@@ -5,9 +8,13 @@
 #login-body-container {
   display: grid;
   grid-template-columns: 5fr 3fr;
+  max-width: 100vw;
 }
 #login-right {
-  margin: 25px auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .login-input {
   min-width: 300px;
@@ -19,13 +26,16 @@
 #login-image {
   object-fit: contain;
   height: 600px;
+  width: 30vw;
 }
 
 .lamp_short {
   height: 300px;
+  width: 5vw;
 }
 .lamp_long {
   height: 500px;
+  width: 5vw;
 }
 #garland_image {
   background-image: url("../../../assets/images/garland.png");
@@ -47,7 +57,7 @@
   font-family: "Times New Roman", Times, serif;
 }
 #login_button {
-  width: 100%;
+  width: 300px;
   margin-top: 30px;
   background-color: var(--color-primary);
   border: 1px var(--color-secondary) solid;

@@ -1,4 +1,4 @@
-import { Button, FloatingLabel, Form, Spinner } from "react-bootstrap";
+import { Button, FloatingLabel, Form } from "react-bootstrap";
 import "./Login.css";
 import loginImageBanner from "../../../assets/images/login_banner_image.png";
 
@@ -12,6 +12,7 @@ import HeaderComponent from "../../../components/HeaderComponent/HeaderComponent
 import FooterComponent from "../../../components/FooterComponent/FooterComponent";
 import { login } from "../../../services/appService";
 import { useState, ChangeEvent } from "react";
+import Spinner from "../../../components/Spinner/SpinnerComponent";
 const Login = () => {
   const navigate = useNavigate();
   const loginInitialValues = {
@@ -96,6 +97,7 @@ const Login = () => {
   };
   return (
     <div id="login-container">
+      <Spinner loading={loading} />
       <HeaderComponent />
       <div id="login-background-container">
         <img src={pillar} alt="pillar_image" className="pillar_image" />
@@ -174,7 +176,6 @@ const Login = () => {
         <img src={pillar} alt="pillar_image" className="pillar_image" />
       </div>
       <FooterComponent />
-      {loading ? <Spinner /> : ""}
     </div>
   );
 };
