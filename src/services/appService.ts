@@ -1,6 +1,6 @@
 import { api } from "../configs/axiosConfigs";
 import { appConstants, storageKeys } from "../configs/appConfigs";
-const { LOGIN_URL, GET_DONATIONS_URL } = appConstants;
+const { LOGIN_URL, GET_DONATIONS_URL, ADD_DONATIONS_URL } = appConstants;
 import { storageService } from "./storageService";
 import { getDonationTypes } from "../types/appServiceTypes";
 export const login = async (values: { username: string; password: string }) => {
@@ -19,12 +19,23 @@ export const login = async (values: { username: string; password: string }) => {
     return error;
   }
 };
+
 export const getDonations = async (params: getDonationTypes) => {
   try {
     const response = await api.get(GET_DONATIONS_URL, { params });
     return response.data;
   } catch (error) {
     console.log("Error @ appService > getDonations ", error);
+    return error;
+  }
+};
+
+export const addDonation = async (values: getDonationTypes) => {
+  try {
+    const response = await api.post(ADD_DONATIONS_URL, values);
+    return response.data;
+  } catch (error) {
+    console.log("Error @ appService > addDonation ", error);
     return error;
   }
 };
