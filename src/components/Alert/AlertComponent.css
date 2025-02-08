@@ -3,8 +3,7 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: black;
-  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
 }
 .alert-no-activity {
   height: 100%;
@@ -19,5 +18,6 @@
   left: 40vw;
   min-width: 500px;
   z-index: 9;
-  opacity: 1;
+  background-color: white; /* Ensures full opacity */
+  opacity: 1; /* Explicitly ensure it's fully visible */
 }

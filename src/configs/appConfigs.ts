@@ -7,8 +7,8 @@ const ENVIRONMENT = environment.prod;
 export const appConstants = {
   BASE_URL: "https://appanapalli-server.vercel.app/",
   LOGIN_URL: "auth/login",
-  GET_DONATIONS_URL: "donation",
-  ADD_DONATIONS_URL: "donation/add",
+  DONATIONS_URL: "donation",
+  MULTIPLE_DONATIONS_URL: "donation/xlsx",
 };
 const setAppEnvironment = () => {
   if (ENVIRONMENT === "development") {

@@ -11,7 +11,12 @@ import FooterComponent from "../../components/FooterComponent/FooterComponent";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import "./Dashboard.css";
 import { useState, useEffect, ChangeEvent } from "react";
-import { addDonation, getDonations } from "../../services/appService";
+import {
+  saveDonation,
+  getDonations,
+  downloadDonationsExcel,
+  uploadDonationsExcel,
+} from "../../services/appService";
 import {
   donationDataTypes,
   addDonationTypes,
@@ -68,6 +73,7 @@ const Dashboard = () => {
     heading: "",
     message: "",
   });
+  const [excelFile, setExcelFile] = useState<File | null>(null);
   const LIMIT = 10;
   const navigate = useNavigate();
   const totalPages = Math.ceil(totalCount / LIMIT);
@@ -82,15 +88,18 @@ const Dashboard = () => {
       setCurrentPage(page);
     }
   };
+
   useEffect(() => {
     if (menuSelectedValue === "logout") {
       storageService.clearStorage();
       navigate("/login", { replace: true });
     }
   }, [menuSelectedValue, navigate]);
+
   const changeMenuHandler = (eventKey: string | null) => {
     setMenuSelectedValue(eventKey);
   };
+
   const getDonationData = (
     fromDate?: string,
     toDate?: string,
@@ -116,11 +125,13 @@ const Dashboard = () => {
       console.log("Error @ Dashboard > getDonationData ", error);
     }
   };
+
   const dateChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     const { name, value } = event.target;
     setDateValues({ ...dateValues, [name]: value });
   };
+
   const addNewDonationChangeHandler = (
     event: ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -130,10 +141,12 @@ const Dashboard = () => {
     const { name, value } = event.target;
     setNewDonationData({ ...newDonationData, [name]: value });
   };
+
   const addDonationModalHandler = () => {
     setNewDonationData(donationInitialValues);
     setShowModal(!showModal);
   };
+
   const editActionHandler = (id: string) => {
     // setShowEditModal(!showEditModal);
     const data = donationsData.find(
@@ -144,13 +157,52 @@ const Dashboard = () => {
     }
     setShowModal(!showModal);
   };
-  const bulkUploadActionHandler = () => {
-    setShowUploadModal(!showUploadModal);
+
+  const bulkUploadActionHandler = (button: string) => {
+    if (button === "upload") {
+      setLoading(true);
+      try {
+        if (excelFile) {
+          uploadDonationsExcel(excelFile).then((response) => {
+            setLoading(false);
+            setShowUploadModal(false);
+            if (response?.type === "success") {
+              console.log("Excel downloaded successfully");
+              setTimeout(
+                () =>
+                  setAlertData({
+                    show: true,
+                    heading: "SUCCESS",
+                    message: "Excel uploaded Successfully",
+                  }),
+                500
+              );
+            }
+          });
+        }
+      } catch (error) {
+        setLoading(false);
+        setShowUploadModal(false);
+        setTimeout(
+          () =>
+            setAlertData({
+              show: true,
+              heading: "FAILURE",
+              message: "Excel upload failed",
+            }),
+          500
+        );
+        console.log("Error @ Dashboard > bulkUploadActionHandler ", error);
+      }
+    } else {
+      setShowUploadModal(!showUploadModal);
+    }
   };
+
   const addActionHandler = () => {
     try {
       setLoading(true);
-      addDonation(newDonationData)
+      saveDonation(newDonationData)
         .then((response) => {
           if (response?.type === "success") {
             console.log("Donation Added Successfully");
@@ -177,10 +229,54 @@ const Dashboard = () => {
       console.log("Error @ Dashboard > addActionHandler ", error);
     }
   };
+
   const submitDatesHandler = () => {
     getDonationData(dateValues.fromDate, dateValues.toDate, 1, LIMIT);
     setCurrentPage(1);
   };
+
+  const exportToExcelHandler = () => {
+    try {
+      setLoading(true);
+      const params = {
+        fromDate: dateValues.fromDate,
+        toDate: dateValues.toDate,
+      };
+      downloadDonationsExcel(params)
+        .then((response) => {
+          if (response?.type === "success") {
+            console.log("Excel downloaded successfully");
+          }
+        })
+        .finally(() => setLoading(false));
+    } catch (error) {
+      setLoading(false);
+      setTimeout(
+        () =>
+          setAlertData({
+            show: true,
+            heading: "FAILURE",
+            message: "Excel download failed",
+          }),
+        500
+      );
+      console.log("Error @ Dashboard > exportToExcelHandler ", error);
+    }
+  };
+
+  const uploadExcelChangeHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    try {
+      const file = event?.target?.files?.[0];
+      if (file) {
+        setExcelFile(file);
+      }
+    } catch (error) {
+      console.log("Error @ Dashboard > uploadExcelChangeHandler ", error);
+    }
+  };
+
   return (
     <div id="dashboard-container">
       <Spinner loading={loading} />
@@ -226,10 +322,15 @@ const Dashboard = () => {
             <Button className="btn-danger" onClick={addDonationModalHandler}>
               ADD NEW DONATION
             </Button>
-            <Button className="btn-danger" onClick={bulkUploadActionHandler}>
+            <Button
+              className="btn-danger"
+              onClick={() => bulkUploadActionHandler("close")}
+            >
               BULK UPLOAD FROM EXCEL
             </Button>
-            <Button className="btn-danger">EXPORT TO EXCEL</Button>
+            <Button className="btn-danger" onClick={exportToExcelHandler}>
+              EXPORT TO EXCEL
+            </Button>
           </span>
           <Dropdown onSelect={changeMenuHandler}>
             <Dropdown.Toggle variant="" id="dashboard-options">
@@ -616,7 +717,11 @@ const Dashboard = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Modal centered show={showUploadModal} onHide={bulkUploadActionHandler}>
+      <Modal
+        centered
+        show={showUploadModal}
+        onHide={() => bulkUploadActionHandler("close")}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Bulk Upload from Excel</Modal.Title>
         </Modal.Header>
@@ -625,16 +730,24 @@ const Dashboard = () => {
             <Form.Label>Choose Excel file</Form.Label>
             <Form.Control
               type="file"
-              placeholder="Enter serial number"
+              placeholder="Choose Excel file"
+              accept=".xlsx, .xls"
+              onChange={uploadExcelChangeHandler}
               autoFocus
             />
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={bulkUploadActionHandler}>
+          <Button
+            variant="secondary"
+            onClick={() => bulkUploadActionHandler("close")}
+          >
             Close
           </Button>
-          <Button variant="danger" onClick={bulkUploadActionHandler}>
+          <Button
+            variant="danger"
+            onClick={() => bulkUploadActionHandler("upload")}
+          >
             Upload
           </Button>
         </Modal.Footer>
