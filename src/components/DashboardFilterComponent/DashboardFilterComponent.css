@@ -1,0 +1,46 @@
+#dashboard-action-container {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  padding: 10px 0;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+#dashboard-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+}
+#dashboard-options {
+  /* max-width: 2300px;
+    max-height: 100px; */
+  width: fit-content;
+  height: fit-content;
+  text-align: right;
+  background: transparent;
+  border: 0;
+  color: var(--color-primary);
+}
+#dashboard-options:hover {
+  cursor: pointer;
+}
+.dashboard-action-input {
+  max-width: 220px;
+  --bs-border-color: var(--color-primary);
+  --bs-body-bg: var(--color-background);
+}
+.form-control {
+  background-color: var(--color-background);
+}
+#dashboard-options-dropdown {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.dashboard-action-button {
+  min-width: 250px;
+  max-height: 40px;
+}
+#dashboard-search-dropdown {
+  max-height: 300px;
+  overflow-y: auto;
+}

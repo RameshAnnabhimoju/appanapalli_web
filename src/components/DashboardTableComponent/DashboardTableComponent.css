@@ -1,0 +1,10 @@
+#dashboard-table {
+  --bs-table-bg: transparent; /* or --bs-table-bg: transparent; */
+}
+.dashboard-table-data-action {
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+.dashboard-table-data-action:hover {
+  cursor: pointer;
+}
