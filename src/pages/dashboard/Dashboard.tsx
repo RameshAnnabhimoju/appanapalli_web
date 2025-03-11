@@ -74,11 +74,42 @@ const Dashboard = () => {
     message: "",
   });
   const [excelFile, setExcelFile] = useState<File | null>(null);
+  const [sortdateBy, setSortdateBy] = useState("Sort Date By");
+  const [searchBy, setSearchBy] = useState("Search By");
+  const [searchValue, setSearchValue] = useState("");
+  const searchChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+  const changeSearchHandler = (eventKey: string | null) => {
+    if (eventKey) setSearchBy(eventKey);
+  };
+  const changeDateHandler = (eventKey: string | null) => {
+    if (eventKey) setSortdateBy(eventKey);
+  };
+  const searchhandler = () => {
+    if (searchBy != "Search By" && searchValue.length > 5) {
+      getDonationData(
+        dateValues.fromDate,
+        dateValues.toDate,
+        1,
+        LIMIT,
+        sortdateBy,
+        searchBy,
+        searchValue
+      );
+    }
+  };
   const LIMIT = 10;
   const navigate = useNavigate();
   const totalPages = Math.ceil(totalCount / LIMIT);
   useEffect(() => {
-    getDonationData(dateValues.fromDate, dateValues.toDate, currentPage, LIMIT);
+    getDonationData(
+      dateValues.fromDate,
+      dateValues.toDate,
+      currentPage,
+      LIMIT,
+      sortdateBy
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
@@ -99,15 +130,49 @@ const Dashboard = () => {
     setMenuSelectedValue(eventKey);
   };
 
+  const resetFiltersHandler = () => {
+    setDateValues(dateInitialValues);
+    setSortdateBy("Sort Date By");
+    setSearchBy("Search By");
+    setSearchValue("");
+  };
   const getDonationData = (
     fromDate?: string,
     toDate?: string,
     page?: number,
-    limit?: number
+    limit?: number,
+    sortdateBy?: string,
+    searchKey?: string,
+    searchValue?: string
   ) => {
     try {
+      // console.log(
+      //   "search by ",
+      //   searchKey,
+      //   " value ",
+      //   searchValue,
+      //   "sortdateBy ",
+      //   sortdateBy
+      // );
       setLoading(true);
-      const params = { fromDate, toDate, page, limit };
+      let params: {
+        fromDate?: string;
+        toDate?: string;
+        page?: number;
+        limit?: number;
+        sortBy?: string;
+      } = {
+        fromDate,
+        toDate,
+        page,
+        limit,
+      };
+      if (searchKey && searchValue && searchKey !== "Search By") {
+        params = { ...params, [`${searchKey}`]: searchValue };
+      }
+      if (sortdateBy && sortdateBy !== "Sort Date By") {
+        params = { ...params, [`sortBy`]: sortdateBy };
+      }
       getDonations(params)
         .then((response) => {
           // console.log(response);
@@ -231,7 +296,13 @@ const Dashboard = () => {
   };
 
   const submitDatesHandler = () => {
-    getDonationData(dateValues.fromDate, dateValues.toDate, 1, LIMIT);
+    getDonationData(
+      dateValues.fromDate,
+      dateValues.toDate,
+      1,
+      LIMIT,
+      sortdateBy
+    );
     setCurrentPage(1);
   };
 
@@ -283,17 +354,17 @@ const Dashboard = () => {
     const pincode = name == "pincode" ? value : "";
     if (pincode.length === 6) {
       try {
-        getAddressByPincode(pincode).then((response) => {
-          if (response?.active === 1) {
+        getAddressByPincode(Number(pincode)).then((response) => {
+          if (response?.type === "success") {
             console.log("Address fetched successfully");
-            const regionName = response?.records[0]?.officename || "";
+            const regionName = response?.data?.officename || "";
 
             // Remove variations of HO, H.O, BO, B.O, S.O, SO
             const cleanedRegionName = regionName
               .replace(/\b(H\.?O|B\.?O|S\.?O)\b/gi, "")
               .trim();
 
-            const cityName = response?.records[0]?.divisionname || "";
+            const cityName = response?.data?.divisionname || "";
 
             // Remove "division", "east", "west", "north", "south" (case insensitive)
             const cleanedCityName = cityName
@@ -302,9 +373,9 @@ const Dashboard = () => {
 
             setDonationData({
               ...donationData,
-              state: response?.records[0]?.statename,
-              country: response?.records[0]?.country || "India",
-              district: response?.records[0]?.district,
+              state: response?.data?.statename,
+              country: response?.data?.country || "India",
+              district: response?.data?.district,
               region: cleanedRegionName,
               city: cleanedCityName,
             });
@@ -329,12 +400,20 @@ const Dashboard = () => {
       <div id="dashboard-body">
         <DashboardFilterComponent
           dateValues={dateValues}
+          sortdateBy={sortdateBy}
+          searchBy={searchBy}
+          searchValue={searchValue}
           dateChangeHandler={dateChangeHandler}
           submitDatesHandler={submitDatesHandler}
           donationModalHandler={donationModalHandler}
           bulkUploadActionHandler={bulkUploadActionHandler}
           exportToExcelHandler={exportToExcelHandler}
           changeMenuHandler={changeMenuHandler}
+          searchChangeHandler={searchChangeHandler}
+          changeSearchHandler={changeSearchHandler}
+          changeDateHandler={changeDateHandler}
+          searchhandler={searchhandler}
+          resetFiltersHandler={resetFiltersHandler}
         />
         <DashboardTableComponent
           donationsData={donationsData}

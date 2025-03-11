@@ -9,6 +9,7 @@ export const appConstants = {
   LOGIN_URL: "auth/login",
   DONATIONS_URL: "donation",
   MULTIPLE_DONATIONS_URL: "donation/xlsx",
+  PINCODE_URL: "pincode",
 };
 const setAppEnvironment = () => {
   if (ENVIRONMENT === "development") {

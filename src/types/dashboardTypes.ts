@@ -86,12 +86,20 @@ export type BulkImportModalTypes = {
 };
 export type dashboardFilterTypes = {
   dateValues: { fromDate: string; toDate: string };
+  sortdateBy: string;
+  searchBy: string;
+  searchValue: string;
   dateChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
   submitDatesHandler: () => void;
   donationModalHandler: () => void;
   bulkUploadActionHandler: (button: string) => void;
   exportToExcelHandler: () => void;
   changeMenuHandler: (eventKey: string | null) => void;
+  searchChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+  changeSearchHandler: (eventKey: string | null) => void;
+  changeDateHandler: (eventKey: string | null) => void;
+  searchhandler: () => void;
+  resetFiltersHandler: () => void;
 };
 export type pagenationTypes = {
   donationsData: donationDataTypes[];

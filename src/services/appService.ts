@@ -1,6 +1,7 @@
 import { api } from "../configs/axiosConfigs";
 import { appConstants, storageKeys } from "../configs/appConfigs";
-const { LOGIN_URL, DONATIONS_URL, MULTIPLE_DONATIONS_URL } = appConstants;
+const { LOGIN_URL, DONATIONS_URL, MULTIPLE_DONATIONS_URL, PINCODE_URL } =
+  appConstants;
 import { storageService } from "./storageService";
 import { getDonationTypes } from "../types/appServiceTypes";
 import { saveAs } from "file-saver";
@@ -93,16 +94,13 @@ export const uploadDonationsExcel = async (file: File) => {
   }
 };
 
-export const getAddressByPincode = async (pincode: string) => {
+export const getAddressByPincode = async (pincode: number) => {
   try {
-    const response = await api.get(
-      `https://api.data.gov.in/resource/5c2f62fe-5afa-4119-a499-fec9d604d5bd?api-key=579b464db66ec23bdd000001fa93124e5a324e1858c8e85f568eaf33&format=json&filters[pincode]=${pincode}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await api.get(PINCODE_URL + "?pincode=" + pincode, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return response.data;
   } catch (error) {
     console.log("Error @ appService > getAddressByPincode ", error);

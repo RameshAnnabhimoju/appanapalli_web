@@ -8,23 +8,60 @@ import {
 } from "react-bootstrap";
 import "./DashboardFilterComponent.css";
 import { dashboardFilterTypes } from "../../types/dashboardTypes";
+import { appUtils } from "../../utils/appUtils";
 const DashboardFilterComponent = ({
   dateValues,
+  sortdateBy,
+  searchBy,
+  searchValue,
   dateChangeHandler,
   submitDatesHandler,
   donationModalHandler,
   bulkUploadActionHandler,
   exportToExcelHandler,
   changeMenuHandler,
+  searchChangeHandler,
+  changeSearchHandler,
+  changeDateHandler,
+  searchhandler,
+  resetFiltersHandler,
 }: dashboardFilterTypes) => {
+  const searchkeys = [
+    { key: "devotee", value: "Devotee" },
+    { key: "phone", value: "Phone" },
+    { key: "performance_date", value: "Performance Date" },
+    { key: "transaction_id", value: "Transaction ID" },
+    { key: "recept_no", value: "Receipt No" },
+    { key: "booking_id", value: "Booking ID" },
+    { key: "in_behalf_of", value: "In Behalf Of" },
+    { key: "amount", value: "Amount" },
+    { key: "booked_on", value: "Booked On" },
+    { key: "id_proof_number", value: "ID Proof Number" },
+    { key: "occasion", value: "Occasion" },
+    { key: "email", value: "Email" },
+    { key: "gothram", value: "Gothram" },
+    { key: "pincode", value: "Pincode" },
+    { key: "state", value: "State" },
+    { key: "city", value: "City" },
+    { key: "district", value: "District" },
+    { key: "region", value: "Region" },
+    { key: "country", value: "Country" },
+    { key: "paksham", value: "Paksham" },
+    { key: "telugu_month", value: "Telugu Month" },
+    { key: "tidi", value: "Tidi" },
+    { key: "payment_mode", value: "Payment Mode" },
+  ];
+
   return (
     <div id="dashboard-action-container">
       <InputGroup>
-        <Dropdown onSelect={changeMenuHandler}>
-          <Dropdown.Toggle variant="danger">Sort Date By</Dropdown.Toggle>
+        <Dropdown onSelect={changeDateHandler}>
+          <Dropdown.Toggle variant="danger" id="dashboard-sort-dropdown">
+            {appUtils.capitalize(sortdateBy) || "Sort Date By"}
+          </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item key="booked_on" eventKey="booked_on">
-              Booking Date
+              Booked On
             </Dropdown.Item>
             <Dropdown.Item key="performance_date" eventKey="performance_date">
               Performance Date
@@ -64,72 +101,31 @@ const DashboardFilterComponent = ({
         </Button>
       </InputGroup>
       <InputGroup>
-        <DropdownButton variant="danger" title="Seach By">
+        <DropdownButton
+          variant="danger"
+          title={appUtils.capitalize(searchBy) || "Search By"}
+          onSelect={changeSearchHandler}
+          id="dashboard-search-dropdown"
+        >
           <div id="dashboard-search-dropdown">
-            <Dropdown.Item key="devotee" eventKey="devotee">
-              Devotee
-            </Dropdown.Item>
-            <Dropdown.Item key="phone" eventKey="phone">
-              Phone
-            </Dropdown.Item>
-            <Dropdown.Item key="performance_date" eventKey="performance_date">
-              Performance Date
-            </Dropdown.Item>
-            <Dropdown.Item key="transaction_id" eventKey="transaction_id">
-              Transaction ID
-            </Dropdown.Item>
-            <Dropdown.Item key="recept_no" eventKey="recept_no">
-              Receipt No
-            </Dropdown.Item>
-            <Dropdown.Item key="booking_id" eventKey="booking_id">
-              Booking ID
-            </Dropdown.Item>
-            <Dropdown.Item key="in_behalf_of" eventKey="in_behalf_of">
-              In Behalf Of
-            </Dropdown.Item>
-            <Dropdown.Item key="amount" eventKey="amount">
-              Amount
-            </Dropdown.Item>
-            <Dropdown.Item key="booked_on" eventKey="booked_on">
-              Booked On
-            </Dropdown.Item>
-            <Dropdown.Item key="id_proof_number" eventKey="id_proof_number">
-              ID Proof Number
-            </Dropdown.Item>
-            <Dropdown.Item key="occasion" eventKey="occasion">
-              Occasion
-            </Dropdown.Item>
-            <Dropdown.Item key="email" eventKey="email">
-              Email
-            </Dropdown.Item>
-            <Dropdown.Item key="gothram" eventKey="gothram">
-              Gothram
-            </Dropdown.Item>
-            <Dropdown.Item key="pincode" eventKey="pincode">
-              Pincode
-            </Dropdown.Item>
-            <Dropdown.Item key="state" eventKey="state">
-              State
-            </Dropdown.Item>
-            <Dropdown.Item key="country" eventKey="country">
-              Country
-            </Dropdown.Item>
-            <Dropdown.Item key="paksham" eventKey="paksham">
-              Paksham
-            </Dropdown.Item>
-            <Dropdown.Item key="telugu_month" eventKey="telugu_month">
-              Telugu Month
-            </Dropdown.Item>
-            <Dropdown.Item key="sub_tidi" eventKey="sub_tidi">
-              Sub Tidi
-            </Dropdown.Item>
-            <Dropdown.Item key="payment_mode" eventKey="payment_mode">
-              Payment Mode
-            </Dropdown.Item>
+            {searchkeys.map((key) => (
+              <Dropdown.Item key={key.key} eventKey={key.key}>
+                {key.value}
+              </Dropdown.Item>
+            ))}
           </div>
         </DropdownButton>
-        <Form.Control aria-label="Text input with dropdown button" />
-        <Button variant="danger" id="button-addon1">
+        <Form.Control
+          name="search-input"
+          placeholder={
+            searchBy != "Search By"
+              ? "Search by " + appUtils.capitalize(searchBy)
+              : "select key to search by and type here to search"
+          }
+          onChange={searchChangeHandler}
+          value={searchValue}
+        />
+        <Button variant="danger" id="button-addon1" onClick={searchhandler}>
           SEARCH
         </Button>
       </InputGroup>
@@ -168,6 +164,12 @@ const DashboardFilterComponent = ({
           onClick={exportToExcelHandler}
         >
           EXPORT TO EXCEL
+        </Button>
+        <Button
+          className="btn-danger dashboard-action-button"
+          onClick={resetFiltersHandler}
+        >
+          RESET ALL FILTERS
         </Button>
       </span>
     </div>

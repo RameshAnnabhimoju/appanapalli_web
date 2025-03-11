@@ -1,15 +1,17 @@
 #dashboard-action-container {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-rows: auto auto;
   padding: 10px 0;
   row-gap: 20px;
   column-gap: 20px;
 }
 
 #dashboard-actions {
+  grid-column: span 3;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 10px;
 }
 #dashboard-options {
   /* max-width: 2300px;
@@ -25,6 +27,7 @@
   cursor: pointer;
 }
 .dashboard-action-input {
+  min-width: 200px;
   max-width: 220px;
   --bs-border-color: var(--color-primary);
   --bs-body-bg: var(--color-background);
@@ -38,9 +41,14 @@
 }
 .dashboard-action-button {
   min-width: 250px;
+  max-width: 300px;
   max-height: 40px;
 }
 #dashboard-search-dropdown {
   max-height: 300px;
   overflow-y: auto;
+}
+#dashboard-sort-dropdown,
+#dashboard-search-dropdown {
+  min-width: 165px;
 }

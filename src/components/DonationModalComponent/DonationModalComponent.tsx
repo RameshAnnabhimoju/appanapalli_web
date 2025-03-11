@@ -9,6 +9,39 @@ const DonationModalComponent = ({
   donationSavehandler,
   pincodeHandler,
 }: donationModalTypes) => {
+  const teluguMonths = [
+    "Chaitram",
+    "Vaisakham",
+    "Jyeshtam",
+    "Ashadam",
+    "Sravanam",
+    "Bhadrapadam",
+    "Aswayujam",
+    "Karthikam",
+    "Margasiram",
+    "Pushyam",
+    "Magham",
+    "Phalgunam",
+  ];
+  const pakshams = ["Sukla Paksham", "Krishna Paksham"];
+  const tidis = [
+    "Prathamai",
+    "Dwitiya",
+    "Tritiya",
+    "Chaturthi",
+    "Panchami",
+    "Shashti",
+    "Saptami",
+    "Ashtami",
+    "Navami",
+    "Dashami",
+    "Ekadashi",
+    "Dwadashi",
+    "Thrayodashi",
+    "Chaturdashi",
+    "Pournami",
+    "Amavasya",
+  ];
   return (
     <div>
       <Modal
@@ -97,6 +130,58 @@ const DonationModalComponent = ({
                     : ""
                 }
               />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Telugu Month</Form.Label>
+              <Form.Select
+                name="telugu_month"
+                onChange={donationChangeHandler}
+                value={donationData.telugu_month}
+              >
+                <option hidden selected>
+                  Select Telugu Month
+                </option>
+                {teluguMonths.map((month) => (
+                  <option key={month} value={month}>
+                    {month}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Paksham</Form.Label>
+              <Form.Select
+                name="paksham"
+                onChange={donationChangeHandler}
+                value={donationData.paksham}
+              >
+                <option hidden selected>
+                  Select Paksham
+                </option>
+                {pakshams.map((paksham) => (
+                  <option key={paksham} value={paksham}>
+                    {paksham}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Tidi</Form.Label>
+              <Form.Select
+                name="sub_tidi"
+                onChange={donationChangeHandler}
+                value={donationData.tidi}
+              >
+                <option hidden selected>
+                  Select Tidi
+                </option>
+                {tidis.map((tidi) => (
+                  <option key={tidi} value={tidi}>
+                    {tidi}
+                  </option>
+                ))}
+              </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>On Behalf Of</Form.Label>
@@ -274,36 +359,6 @@ const DonationModalComponent = ({
                 name="country"
                 onChange={donationChangeHandler}
                 value={donationData.country}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Paksham</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Paksham"
-                name="paksham"
-                onChange={donationChangeHandler}
-                value={donationData.paksham}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Telugu Month</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Telugu Month"
-                name="telugu_month"
-                onChange={donationChangeHandler}
-                value={donationData.telugu_month}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Sub Tidi</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Sub Tidi"
-                name="sub_tidi"
-                onChange={donationChangeHandler}
-                value={donationData.tidi}
               />
             </Form.Group>
           </Form>

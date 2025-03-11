@@ -15,6 +15,7 @@ const DashboardTableComponent = ({
           <tr>
             <th>Recept No</th>
             <th>Booking Date</th>
+            <th>Performance Date</th>
             <th>Devotee</th>
             <th>Phone</th>
             <th>Donation</th>
@@ -31,6 +32,7 @@ const DashboardTableComponent = ({
                 <tr key={data._id}>
                   <td>{data?.recept_no}</td>
                   <td>{data?.booked_on?.split("T")[0]}</td>
+                  <td>{data?.performance_date?.split("T")[0]}</td>
                   <td>{data?.devotee}</td>
                   <td>{data?.phone}</td>
                   <td>{data?.donation}</td>

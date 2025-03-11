@@ -16,4 +16,11 @@ export const appUtils = {
       ? new Date(ToDate).setHours(23, 59, 59, 999)
       : new Date().setHours(23, 59, 59, 999);
   },
+  capitalize: (string: string) => {
+    return string
+      .replace(/_/g, " ")
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  },
 };
