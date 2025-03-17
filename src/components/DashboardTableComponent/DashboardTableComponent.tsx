@@ -19,8 +19,6 @@ const DashboardTableComponent = ({
             <th>Devotee</th>
             <th>Phone</th>
             <th>Donation</th>
-            <th>Booking ID</th>
-            <th>Transaction ID</th>
             <th>Amount</th>
             <th>Action</th>
           </tr>
@@ -36,8 +34,6 @@ const DashboardTableComponent = ({
                   <td>{data?.devotee}</td>
                   <td>{data?.phone}</td>
                   <td>{data?.donation}</td>
-                  <td>{data?.booking_id}</td>
-                  <td>{data?.transaction_id}</td>
                   <td>{data?.amount}</td>
                   <td
                     className="dashboard-table-data-action"

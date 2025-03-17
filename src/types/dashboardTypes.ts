@@ -9,18 +9,13 @@ export type donationDataTypes = {
   address?: string;
   donation?: string;
   performance_date?: string;
-  transaction_id?: string;
   recept_no?: string;
-  booking_id?: string;
   in_behalf_of?: string;
   amount?: number;
   booked_on?: string;
-  id_proof_type?: string;
-  id_proof_number?: string;
   occasion?: string;
   email?: string;
   gothram?: string;
-  id_proof?: string;
   pincode?: string;
   state?: string;
   city?: string;
@@ -30,7 +25,6 @@ export type donationDataTypes = {
   paksham?: string;
   telugu_month?: string;
   tidi?: string;
-  payment_mode?: string;
   createdAt?: string;
   updatedAt?: string;
 };
@@ -41,18 +35,13 @@ export type addDonationTypes = {
   address?: string;
   donation?: string;
   performance_date?: string;
-  transaction_id?: string;
   recept_no?: string;
-  booking_id?: string;
   in_behalf_of?: string;
   amount?: number;
   booked_on?: string;
-  id_proof_type?: string;
-  id_proof_number?: string;
   occasion?: string;
   email?: string;
   gothram?: string;
-  id_proof?: string;
   pincode?: string;
   state?: string;
   city?: string;
@@ -62,7 +51,6 @@ export type addDonationTypes = {
   paksham?: string;
   telugu_month?: string;
   tidi?: string;
-  payment_mode?: string;
 };
 
 export type donationModalTypes = {

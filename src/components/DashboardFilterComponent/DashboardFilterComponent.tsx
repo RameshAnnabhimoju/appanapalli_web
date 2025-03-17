@@ -30,13 +30,10 @@ const DashboardFilterComponent = ({
     { key: "devotee", value: "Devotee" },
     { key: "phone", value: "Phone" },
     { key: "performance_date", value: "Performance Date" },
-    { key: "transaction_id", value: "Transaction ID" },
     { key: "recept_no", value: "Receipt No" },
-    { key: "booking_id", value: "Booking ID" },
     { key: "in_behalf_of", value: "In Behalf Of" },
     { key: "amount", value: "Amount" },
     { key: "booked_on", value: "Booked On" },
-    { key: "id_proof_number", value: "ID Proof Number" },
     { key: "occasion", value: "Occasion" },
     { key: "email", value: "Email" },
     { key: "gothram", value: "Gothram" },
@@ -49,7 +46,6 @@ const DashboardFilterComponent = ({
     { key: "paksham", value: "Paksham" },
     { key: "telugu_month", value: "Telugu Month" },
     { key: "tidi", value: "Tidi" },
-    { key: "payment_mode", value: "Payment Mode" },
   ];
 
   return (

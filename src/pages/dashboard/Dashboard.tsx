@@ -33,19 +33,14 @@ const Dashboard = () => {
     devotee: "",
     phone: "",
     address: "",
-    donation: "",
+    donation: "శాశ్వత నిత్య అన్నదానం",
     performance_date: "",
-    transaction_id: "",
-    booking_id: "",
     in_behalf_of: "",
     amount: 0,
     booked_on: "",
-    id_proof_type: "",
-    id_proof_number: "",
     occasion: "",
     email: "",
     gothram: "",
-    id_proof: "",
     pincode: "",
     state: "",
     city: "",
@@ -55,7 +50,6 @@ const Dashboard = () => {
     paksham: "",
     telugu_month: "",
     sub_tidi: "",
-    payment_mode: "",
   } as addDonationTypes;
   const [showModal, setShowModal] = useState(false);
   const [showUploadModal, setShowUploadModal] = useState(false);
