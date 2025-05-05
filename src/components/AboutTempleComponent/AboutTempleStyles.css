@@ -1,0 +1,31 @@
+#about-temple-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 100px 5%;
+  background-color: var(--color-background);
+}
+#about-temple-image {
+  width: 300px;
+  height: 260px;
+  z-index: 2;
+  background-color: var(--color-background);
+}
+#about-temple-image2 {
+  position: relative;
+  right: 170px;
+  bottom: 20px;
+  opacity: 0.7;
+  border-radius: 10px;
+}
+#about-temple-text {
+  max-width: 600px;
+  line-height: 32px;
+  text-align: justify;
+}
+#about-temple-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 30px 0;
+}

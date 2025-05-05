@@ -1,17 +1,14 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginPage from "../pages/public/login/Login";
 import ErrorPage from "../pages/Error/ErrorPage";
 import PrivateRouter from "./PrivateRouter";
 import Dashboard from "../pages/dashboard/Dashboard";
+import Home from "../pages/Home/Home";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<Navigate to={"/login"} />}
-        errorElement={<ErrorPage />}
-      />
+      <Route path="/" element={<Home />} errorElement={<ErrorPage />} />
       <Route
         path="/login"
         element={<LoginPage />}

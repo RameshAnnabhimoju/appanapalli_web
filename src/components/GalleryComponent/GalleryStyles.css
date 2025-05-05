@@ -1,0 +1,40 @@
+#gallery-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* This centers the images horizontally */
+  gap: 20px; /* Optional: adds space between images */
+  margin: 50px 0;
+}
+#gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+}
+#gallery-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 50px 0;
+}
+.gallery-image {
+  width: 500px;
+  border-radius: 15px;
+}
+.gallery-image:hover {
+  transform: scale(1.03);
+}
+#gallery-divider {
+  border: 1px solid #daac2c;
+  width: 200px;
+  height: 1px;
+}
+#gallery-button {
+  border: 0;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 10px;
+  width: 150px;
+  border-radius: 10px;
+  margin: 25px 0;
+}

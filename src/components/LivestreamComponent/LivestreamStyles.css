@@ -1,0 +1,28 @@
+#livestream-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px 0;
+  background-color: var(--color-background);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("../../assets/images/login_banner_image.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left;
+}
+#livestream-text-title {
+  color: var(--color-primary);
+  font-size: 30px;
+  font-weight: 700;
+}
+#livestream-text {
+  max-width: 500px;
+}
+#livestream-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
