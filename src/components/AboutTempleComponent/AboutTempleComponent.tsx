@@ -1,11 +1,12 @@
 import "./AboutTempleStyles.css";
-import logoImage from "../../assets/images/login_banner_image.png";
+// import logoImage from "../../assets/images/login_banner_image.png";
+import templeImage from "../../assets/images/Appanapalli-Temple.png";
 const AboutTempleComponent = () => {
   return (
     <div id="about-temple-container">
-      <img src={logoImage} alt="about-temple-image" id="about-temple-image" />
+      {/* <img src={logoImage} alt="about-temple-image" id="about-temple-image" /> */}
       <img
-        src="https://www.srisailadevasthanam.org/static/media/SD-gallery-04.63cfb6ad.png"
+        src={templeImage}
         alt="about-temple-image"
         id="about-temple-image2"
       />

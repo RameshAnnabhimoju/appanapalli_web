@@ -3,7 +3,10 @@ import FooterComponent from "../../components/FooterComponent/FooterComponent";
 import GalleryCompoent from "../../components/GalleryComponent/GalleryCompoent";
 import LivestreamComponent from "../../components/LivestreamComponent/LivestreamComponent";
 import NavbarComponent from "../../components/NavbarComponent/NavbarComponent";
+import PoojaPrograms from "../../components/PoojaPrograms/PoojaPrograms";
 import ServicesComponent from "../../components/ServicesComponent/ServicesComponent";
+import TempleTimings from "../../components/TempleTimings/TempleTimings";
+import TravelFacilities from "../../components/TravelFacilities/TravelFacilities";
 import "./HomeStyles.css";
 const Home = () => {
   return (
@@ -12,7 +15,10 @@ const Home = () => {
       <LivestreamComponent />
       <ServicesComponent />
       <GalleryCompoent />
+      <TempleTimings />
+      <TravelFacilities />
       <AboutTempleComponent />
+      <PoojaPrograms />
       <FooterComponent />
     </div>
   );

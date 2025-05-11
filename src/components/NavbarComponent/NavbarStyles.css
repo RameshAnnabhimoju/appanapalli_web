@@ -35,3 +35,19 @@
   font-weight: 800;
   cursor: pointer;
 }
+#navbar-select-language {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #cd2f2f;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--color-primary);
+  font-size: 15px;
+  font-weight: 500;
+  align-self: flex-end;
+}
+#navbar-top-navlinks {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
