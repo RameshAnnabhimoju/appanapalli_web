@@ -6,12 +6,10 @@
   background-color: var(--color-background);
 }
 #about-temple-image {
-  width: 300px;
-  height: 260px;
+  width: 600px;
+  height: 600px;
   z-index: 2;
   background-color: var(--color-background);
-}
-#about-temple-image2 {
   position: relative;
   right: 170px;
 }

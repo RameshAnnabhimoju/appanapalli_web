@@ -2,6 +2,7 @@ import "./NavbarStyles.css";
 import logoImage from "../../assets/images/login_banner_image.png";
 import { LanguageContext } from "../../contexts/LanguageContext";
 import { useContext } from "react";
+import kalyanamPdf from "../../assets/kalyanam-pdf.pdf";
 const NavbarComponent = () => {
   const { language, setLanguage } = useContext(LanguageContext);
   const languageChangeHandler = (
@@ -9,6 +10,9 @@ const NavbarComponent = () => {
   ) => {
     const { value } = event.target;
     setLanguage(value);
+  };
+  const handleOpenPdf = () => {
+    window.open(kalyanamPdf, "_blank"); // opens in new tab
   };
   return (
     <div id="navbar-container">
@@ -39,6 +43,7 @@ const NavbarComponent = () => {
                 తెలుగు
               </option>
             </select>
+            <div className="navbar-login">Login</div>
           </div>
         </div>
         <div id="navbar-links-container">
@@ -47,6 +52,9 @@ const NavbarComponent = () => {
           <div className="navbar-link">Sevas & Darshanam</div>
           <div className="navbar-link">Photo Gallery</div>
           <div className="navbar-link">About Temple</div>
+          <div className="navbar-link" onClick={handleOpenPdf}>
+            Kalyanam
+          </div>
         </div>
       </div>
     </div>
