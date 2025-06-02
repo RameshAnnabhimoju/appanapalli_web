@@ -1,6 +1,6 @@
 import "./AboutTempleStyles.css";
 // import logoImage from "../../assets/images/login_banner_image.png";
-import templeImage from "../../assets/images/Appanapalli-Temple.png";
+import templeImage from "../../assets/images/temple-history.jpg";
 import { LanguageContext } from "../../contexts/LanguageContext";
 import { useContext } from "react";
 const AboutTempleComponent = () => {

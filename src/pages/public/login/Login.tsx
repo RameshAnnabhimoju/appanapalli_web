@@ -8,8 +8,8 @@ import lamp_right from "../../../assets/images/lamp_right.png";
 import lamp_long_right from "../../../assets/images/lamp_long_right.png";
 import pillar from "../../../assets/images/pillar.png";
 import { useNavigate } from "react-router-dom";
-import HeaderComponent from "../../../components/HeaderComponent/HeaderComponent";
-import FooterComponent from "../../../components/FooterComponent/FooterComponent";
+// import HeaderComponent from "../../../components/HeaderComponent/HeaderComponent";
+// import FooterComponent from "../../../components/FooterComponent/FooterComponent";
 import { login } from "../../../services/appService";
 import { useState, ChangeEvent } from "react";
 import Spinner from "../../../components/Spinner/SpinnerComponent";
@@ -98,7 +98,7 @@ const Login = () => {
   return (
     <div id="login-container">
       <Spinner loading={loading} />
-      <HeaderComponent />
+      {/* <HeaderComponent /> */}
       <div id="login-background-container">
         <img src={pillar} alt="pillar_image" className="pillar_image" />
         <div>
@@ -175,7 +175,7 @@ const Login = () => {
         </div>
         <img src={pillar} alt="pillar_image" className="pillar_image" />
       </div>
-      <FooterComponent />
+      {/* <FooterComponent /> */}
     </div>
   );
 };

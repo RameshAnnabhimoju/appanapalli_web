@@ -8,13 +8,12 @@ const LivestreamComponent = () => {
           Sri Balabalaji Devastanam Live stream
         </div>
         <div id="livestream-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-          officia cupiditate harum quae reiciendis accusantium quod,
-          perspiciatis dolor sapiente eveniet voluptas, possimus distinctio
-          similique nemo asperiores. Vero repudiandae, suscipit numquam
-          exercitationem labore quod at assumenda iusto, itaque omnis nesciunt
-          possimus inventore veritatis ipsum cumque minus error odio, ullam
-          laborum iure ducimus doloremque nihil? Cupiditate, laboriosam?
+          Sri Appanapalli Temple YouTube Channel is a devotional channel in
+          Telugu. Those who cannot visit Appanapalli Temple can now watch Sri
+          Appanapalli bala balaji Swamy on this youtube channel. It is to
+          provide blessings of Sri Appanapalli Bala Balaji Swamy through digital
+          media. You can watch indirect Homas, Poojas and Abhishekams from your
+          home on this YouTube channel.
         </div>
       </div>
       <iframe

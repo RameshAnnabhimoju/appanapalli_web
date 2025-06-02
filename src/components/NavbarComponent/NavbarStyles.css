@@ -3,13 +3,26 @@
     var(--color-green-dark),
     var(--color-green)
   );
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: 10px 5%;
-  border-bottom: 2px solid #cd2f2f;
+  z-index: 0;
+}
+#navbar-container::after {
+  opacity: 0.15;
+  background: url("../../assets/images/pattern.png");
+  background-size: cover;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 #navbar-logo-image {
-  width: 100px;
+  width: 140px;
 }
 #navbar-logo-container {
   display: flex;
@@ -19,14 +32,17 @@
 }
 #navbar-links-container {
   display: flex;
-  justify-content: space-evenly;
-  gap: 50px;
+  justify-content: center;
+  gap: 60px;
   align-items: center;
+  background-color: var(--color-secondary);
+  padding: 5px 0;
 }
 #navbar-logo-title-telugu {
   color: var(--color-primary);
-  font-size: 15px;
+  font-size: 38px;
   font-weight: 800;
+  font-family: "TimmanaRegular", sans-serif;
 }
 #navbar-logo-title,
 .navbar-link {
@@ -36,21 +52,20 @@
   cursor: pointer;
 }
 .navbar-link {
-  color: var(--color-primary);
+  color: var(--color-background-dull);
 }
 .navbar-link:hover {
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 #navbar-select-language {
   cursor: pointer;
   background-color: transparent;
-  border: 1px solid var(--color-secondary);
+  border: 1px solid var(--color-background-dull);
   padding: 5px;
   border-radius: 5px;
-  color: var(--color-secondary);
+  color: var(--color-background-dull);
   font-size: 15px;
   font-weight: 500;
-  align-self: flex-end;
 }
 #navbar-top-navlinks {
   display: flex;
@@ -63,6 +78,15 @@
   justify-content: center;
 
   align-items: center;
-  color: var(--color-secondary);
+  color: var(--color-background-dull);
   cursor: pointer;
+}
+#navbar-multi-container {
+  display: flex;
+}
+#navbar-logo-title-container {
+  width: 600px;
+}
+#navbar-logo-title {
+  color: var(--color-background-dull);
 }

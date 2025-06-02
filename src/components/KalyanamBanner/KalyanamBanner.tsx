@@ -22,7 +22,7 @@ const KalyanamBanner = () => {
           నుండి. <br />
           భక్తులు ఈ మహోత్సవంలో పాల్గొనడానికి స్వాగతం.
         </div>
-        <Button variant="danger" onClick={handleOpenPdf}>
+        <Button variant="success" onClick={handleOpenPdf}>
           Read More
         </Button>
       </div>

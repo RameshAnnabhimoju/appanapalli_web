@@ -2,8 +2,9 @@ import "./NavbarStyles.css";
 import logoImage from "../../assets/images/login_banner_image.png";
 import { LanguageContext } from "../../contexts/LanguageContext";
 import { useContext } from "react";
-import kalyanamPdf from "../../assets/kalyanam-pdf.pdf";
+import { useNavigate } from "react-router-dom";
 const NavbarComponent = () => {
+  const navigate = useNavigate();
   const { language, setLanguage } = useContext(LanguageContext);
   const languageChangeHandler = (
     event: React.ChangeEvent<HTMLSelectElement>
@@ -11,23 +12,24 @@ const NavbarComponent = () => {
     const { value } = event.target;
     setLanguage(value);
   };
-  const handleOpenPdf = () => {
-    window.open(kalyanamPdf, "_blank"); // opens in new tab
-  };
+  function handleLinkClick(link: string) {
+    navigate("/" + link);
+  }
   return (
     <div id="navbar-container">
-      <div id="navbar-logo-container">
-        <img src={logoImage} alt="navbar-logo-image" id="navbar-logo-image" />
-        <div id="navbar-logo-title-container">
-          <div id="navbar-logo-title">
-            Sri Balabalaji Devastanam (Bala Tirupati)
-          </div>
-          <div id="navbar-logo-title-telugu">
-            శ్రీ బాల బాలాజీ దేవస్థానం (బాల తిరుపతి)
+      <div id="navbar-multi-container">
+        <div id="navbar-logo-container" onClick={() => handleLinkClick("")}>
+          <img src={logoImage} alt="navbar-logo-image" id="navbar-logo-image" />
+          <div id="navbar-logo-title-container">
+            <div id="navbar-logo-title">
+              Sri Balabalaji Devastanam (Bala Tirupati)
+            </div>
+            <div id="navbar-logo-title-telugu">
+              శ్రీ బాల బాలాజీ దేవస్థానం (బాల తిరుపతి)
+            </div>
           </div>
         </div>
-      </div>
-      <div id="navbar-multi-container">
+
         <div id="navbar-top-navlinks">
           <div className="navbar-links">
             <select
@@ -43,17 +45,14 @@ const NavbarComponent = () => {
                 తెలుగు
               </option>
             </select>
-            <div className="navbar-login">Login</div>
-          </div>
-        </div>
-        <div id="navbar-links-container">
-          <div className="navbar-link">Home</div>
-          <div className="navbar-link">Services</div>
-          <div className="navbar-link">Sevas & Darshanam</div>
-          <div className="navbar-link">Photo Gallery</div>
-          <div className="navbar-link">About Temple</div>
-          <div className="navbar-link" onClick={handleOpenPdf}>
-            Kalyanam
+            <div
+              className="navbar-login"
+              onClick={() => {
+                handleLinkClick("login");
+              }}
+            >
+              Login
+            </div>
           </div>
         </div>
       </div>
