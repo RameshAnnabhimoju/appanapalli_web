@@ -4,7 +4,7 @@ import ErrorPage from "../pages/Error/ErrorPage";
 import PrivateRouter from "./PrivateRouter";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Home from "../pages/Home/Home";
-import Gallery from "../pages/gallery/gallery";
+import Gallery from "../pages/gallery/Gallery";
 import NavbarComponent from "../components/NavbarComponent/NavbarComponent";
 import NavbarLinksComponent from "../components/NavbarComponent/NavbarLinksComponent";
 import FooterComponent from "../components/FooterComponent/FooterComponent";
