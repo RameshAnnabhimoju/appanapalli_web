@@ -17,7 +17,7 @@ const LivestreamComponent = () => {
         </div>
       </div>
       <iframe
-        src="https://www.youtube.com/watch?v=l1W4aUmaAL4?autoplay=1"
+        src="https://www.youtube.com/watch?v=l1W4aUmaAL4"
         allow="autoplay; encrypted-media"
         allowFullScreen
         style={{
