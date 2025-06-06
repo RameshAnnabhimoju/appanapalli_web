@@ -4,12 +4,14 @@ import KalyanamBanner from "../../components/KalyanamBanner/KalyanamBanner";
 import LivestreamComponent from "../../components/LivestreamComponent/LivestreamComponent";
 // import PoojaPrograms from "../../components/PoojaPrograms/PoojaPrograms";
 import ServicesComponent from "../../components/ServicesComponent/ServicesComponent";
+import SocialIcons from "../../components/socialIcons/SocialIcons";
 import TempleTimings from "../../components/TempleTimings/TempleTimings";
 import TravelFacilities from "../../components/TravelFacilities/TravelFacilities";
 import "./HomeStyles.css";
 const Home = () => {
   return (
     <div>
+      <SocialIcons />
       <KalyanamBanner />
       <TempleTimings />
       <ServicesComponent />
