@@ -17,7 +17,7 @@ const LivestreamComponent = () => {
         </div>
       </div>
       <iframe
-        src="https://www.youtube.com/embed/cuGuTJPg_I8?autoplay=1"
+        src="https://youtube.com/@balatirupati_appanapalli?si=uGH9IulKT4qhHNB1?autoplay=1"
         allow="autoplay; encrypted-media"
         allowFullScreen
         style={{
