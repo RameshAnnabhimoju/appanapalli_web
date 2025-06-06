@@ -17,15 +17,13 @@ const LivestreamComponent = () => {
         </div>
       </div>
       <iframe
-        src="https://www.youtube.com/watch?v=l1W4aUmaAL4"
-        allow="autoplay; encrypted-media"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/l1W4aUmaAL4?si=RfnE0MVNVBVZ_tpo&amp;controls=0"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-        style={{
-          width: "40%",
-          height: "400px",
-          borderRadius: "15px",
-          border: "4px solid #cd2f2f",
-        }}
       ></iframe>
     </div>
   );
