@@ -1,8 +1,8 @@
 import KalyanamBanner from "../KalyanamBanner/KalyanamBanner";
 import "./CarouselComponent.css";
 import { Carousel } from "react-bootstrap";
-import godhaReel1 from "../../assets/videos/godha-reel-1.mp4";
-import godhaReel2 from "../../assets/videos/godha-reel-2.mp4";
+import godhaReel1 from "../../assets/videos/GODHA-REEL-1.mp4";
+import godhaReel2 from "../../assets/videos/GODHA-REEL-2.mp4";
 
 const CarouselComponent = () => {
   return (
