@@ -12,6 +12,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left;
+  flex-wrap: wrap;
 }
 #livestream-text-title {
   color: var(--color-primary);

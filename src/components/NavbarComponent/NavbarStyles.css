@@ -87,3 +87,37 @@
 #navbar-logo-title {
   color: var(--color-background-dull);
 }
+.mobile-menu-btn {
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--color-background-dull);
+}
+.navbar-link-mobile {
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-secondary);
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  #navbar-links-container {
+    display: none;
+  }
+  #navbar-top-navlinks {
+    display: none;
+  }
+  #navbar-logo-title-container {
+    width: 100%;
+  }
+  #navbar-container::after {
+    background-size: cover;
+    background-repeat: repeat-x;
+  }
+}
+@media screen and (max-width: 430px) {
+  #navbar-logo-container {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+}
