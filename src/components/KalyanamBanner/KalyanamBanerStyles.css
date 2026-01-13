@@ -1,38 +1,201 @@
-#kalyanam-banner-container {
-  display: flex;
-  align-items: center;
-  background-color: var(--color-primary);
-  /* margin-left: 8%;
-  margin-right: 8%; */
-  border-radius: 65px;
-  margin-bottom: 100px;
-  justify-content: center;
-  padding: 50px;
-  padding-right: 50px;
-  margin: 25px 30px;
+/* ===============================
+   GLOBAL (NO BACKGROUND)
+================================ */
+.poster-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: "Noto Serif Telugu", serif;
+  background: transparent;
 }
-#kalyanam-title {
+
+/* ===============================
+   MAIN POSTER CONTAINER
+================================ */
+.poster-container {
+  background: #fffde6;
+  border-radius: 18px;
+  /* border-top: 45px solid #166534;
+  border-bottom: 45px solid #166534; */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.poster-header {
   font-family: "TimmanaRegular", sans-serif;
-  font-size: 60px;
-  color: var(--color-background-dull);
-  margin: 20px 0;
+  /* background: #14532d; */
+  background-color: #071b35;
+  color: #facc15;
   text-align: center;
+  padding: 18px;
+  padding-inline: 50px;
+  font-size: 52px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  border-radius: 15px;
+  margin-bottom: 25px;
 }
-#kalyanam-banner-image {
-  height: 500px;
-}
-#kalyanam-description {
-  font-family: "TimmanaRegular", sans-serif;
-  font-size: 30px;
-  color: var(--color-background);
-  text-align: center;
-  margin: 20px;
-  padding: 0 10px;
-}
-#kalyanam-banner-content {
+
+/* ===============================
+   BODY (DESKTOP)
+================================ */
+.poster-body {
   display: flex;
-  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
   align-items: center;
   justify-content: center;
+}
+
+/* Goddess */
+.goddess-image {
+  width: 300px;
+  flex-shrink: 1;
+  position: relative;
+  top: 100px;
+  transform: scale(1.4);
+}
+
+/* Benefits */
+.benefits-list {
+  background: linear-gradient(#fcf748, #fffde6);
+
+  list-style: none;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.benefits-list li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.whatsapp-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+}
+
+/* ===============================
+   HIGHLIGHT STRIP
+================================ */
+.highlight-bar {
+  background: #1e3a8a;
+  color: #fde68a;
   text-align: center;
+  padding: 14px;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 15px;
+}
+
+/* ===============================
+   EVENT DETAILS
+================================ */
+.event-details {
+  background: #7f1d1d;
+  color: #ffffff;
+  text-align: center;
+  padding: 22px;
+  padding-left: 500px;
+}
+
+.event-details h2 {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.event-details p {
+  margin: 6px 0;
+  font-size: 18px;
+}
+
+.event-details .small {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.event-details .date {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fde68a;
+}
+
+/* ===============================
+   CONTACT BAR
+================================ */
+.contact-bar {
+  color: #facc15;
+  /* color: #1f2937; */
+  text-align: center;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 900;
+}
+.poster-main {
+  display: flex;
+  justify-content: space-evenly;
+}
+.thoranam {
+  background-image: url("../../assets/images/thoranam_upscaled.png");
+  background-repeat: repeat-x;
+  background-size: auto 80px;
+  height: 80px;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .poster-header {
+    font-size: 22px;
+    padding: 14px;
+  }
+
+  .poster-body {
+    flex-direction: column;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .goddess-image {
+    width: 200px;
+    position: static;
+    margin-bottom: 12px;
+    transform: scale(0.8);
+    flex-shrink: 0;
+  }
+
+  .benefits-list {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .highlight-bar {
+    font-size: 16px;
+  }
+  .event-details {
+    padding-left: 0;
+  }
+
+  .event-details h2 {
+    font-size: 20px;
+  }
+
+  .event-details p {
+    font-size: 14px;
+  }
+
+  .contact-bar {
+    font-size: 16px;
+  }
 }

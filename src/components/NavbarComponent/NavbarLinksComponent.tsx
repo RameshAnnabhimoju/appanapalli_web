@@ -18,15 +18,15 @@ const NavbarLinksComponent = () => {
       <div className="navbar-link" onClick={() => handleOpenPdf("")}>
         Home
       </div>
-      <div className="navbar-link">Services</div>
+      {/* <div className="navbar-link">Services</div> */}
       <div className="navbar-link">Sevas & Darshanam</div>
       <div className="navbar-link" onClick={() => handleOpenPdf("gallery")}>
         Photo Gallery
       </div>
       <div className="navbar-link">About Temple</div>
-      <div className="navbar-link" onClick={() => handleOpenPdf("kalyanam")}>
+      {/* <div className="navbar-link" onClick={() => handleOpenPdf("kalyanam")}>
         Kalyanam 2025
-      </div>
+      </div> */}
       <div className="navbar-link" onClick={() => handleOpenPdf("donations")}>
         Donations
       </div>

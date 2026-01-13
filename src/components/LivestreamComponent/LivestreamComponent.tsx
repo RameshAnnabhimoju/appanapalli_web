@@ -19,12 +19,13 @@ const LivestreamComponent = () => {
       <iframe
         width="560"
         height="315"
-        src="https://www.youtube.com/embed/l1W4aUmaAL4?si=RfnE0MVNVBVZ_tpo&amp;controls=0"
+        src="https://www.youtube.com/embed/T-nF_3HUfGQ?si=IPLKudrBha7RnynF"
         title="YouTube video player"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-      ></iframe>
+      />
     </div>
   );
 };

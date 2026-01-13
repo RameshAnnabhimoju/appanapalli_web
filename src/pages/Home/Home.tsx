@@ -1,6 +1,7 @@
 import AboutTempleComponent from "../../components/AboutTempleComponent/AboutTempleComponent";
+import CarouselComponent from "../../components/CarouselComponent/CarouselComponent";
 import GalleryCompoent from "../../components/GalleryComponent/GalleryCompoent";
-import KalyanamBanner from "../../components/KalyanamBanner/KalyanamBanner";
+// import KalyanamBanner from "../../components/KalyanamBanner/KalyanamBanner";
 import LivestreamComponent from "../../components/LivestreamComponent/LivestreamComponent";
 // import PoojaPrograms from "../../components/PoojaPrograms/PoojaPrograms";
 import ServicesComponent from "../../components/ServicesComponent/ServicesComponent";
@@ -12,7 +13,8 @@ const Home = () => {
   return (
     <div>
       <SocialIcons />
-      <KalyanamBanner />
+      {/* <KalyanamBanner /> */}
+      <CarouselComponent />
       <TempleTimings />
       <ServicesComponent />
       <LivestreamComponent />

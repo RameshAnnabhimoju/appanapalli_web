@@ -1,8 +1,5 @@
 #navbar-container {
-  background-image: linear-gradient(
-    var(--color-green-dark),
-    var(--color-green)
-  );
+  background-image: linear-gradient(var(--color-blue-dark), var(--color-blue));
   position: relative;
   display: flex;
   flex-direction: column;
