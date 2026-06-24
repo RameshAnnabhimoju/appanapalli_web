@@ -1,10 +1,10 @@
-import KalyanamBanner from "../KalyanamBanner/KalyanamBanner";
+// import KalyanamBanner from "../KalyanamBanner/KalyanamBanner";
 import "./CarouselComponent.css";
 import kalyanamPhoto from "../../assets/images/kalyanam 1.jpeg";
 import { useNavigate } from "react-router-dom";
-import { Carousel } from "react-bootstrap";
-import godhaReel1 from "../../assets/videos/GODHA-REEL-1.mp4";
-import godhaReel2 from "../../assets/videos/GODHA-REEL-2.mp4";
+// import { Carousel } from "react-bootstrap";
+// import godhaReel1 from "../../assets/videos/GODHA-REEL-1.mp4";
+// import godhaReel2 from "../../assets/videos/GODHA-REEL-2.mp4";
 
 const CarouselComponent = () => {
   const navigate = useNavigate();
