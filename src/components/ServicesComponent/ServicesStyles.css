@@ -9,6 +9,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding-bottom: 100px;
+  gap: 20px;
 }
 .services-card {
   min-width: 350px;

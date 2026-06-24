@@ -19,6 +19,9 @@ const NavbarLinksComponent = () => {
         Home
       </div>
       {/* <div className="navbar-link">Services</div> */}
+      <div className="navbar-link" onClick={() => navigate("/kalyanam-2026")}>
+        Kalyanam 2026
+      </div>
       <div className="navbar-link">Sevas & Darshanam</div>
       <div className="navbar-link" onClick={() => handleOpenPdf("gallery")}>
         Photo Gallery

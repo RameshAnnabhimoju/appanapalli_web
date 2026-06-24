@@ -8,6 +8,7 @@ import Gallery from "../pages/gallery/Gallery";
 import NavbarComponent from "../components/NavbarComponent/NavbarComponent";
 import NavbarLinksComponent from "../components/NavbarComponent/NavbarLinksComponent";
 import FooterComponent from "../components/FooterComponent/FooterComponent";
+import Kalyanam2026 from "../pages/Kalyanam2026/Kalyanam2026";
 
 const AppRoutes = () => {
   return (
@@ -25,6 +26,10 @@ const AppRoutes = () => {
           path="/gallery"
           element={<Gallery />}
           errorElement={<ErrorPage />}
+        />
+        <Route
+          path="/kalyanam-2026"
+          element={<Kalyanam2026 />}
         />
         <Route element={<PrivateRouter />}>
           <Route path="/dashboard" element={<Dashboard />} />

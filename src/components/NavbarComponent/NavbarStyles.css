@@ -64,6 +64,10 @@
   font-size: 15px;
   font-weight: 500;
 }
+#navbar-select-language option {
+  color: black;
+  background-color: white;
+}
 #navbar-top-navlinks {
   display: flex;
   justify-content: flex-end;
