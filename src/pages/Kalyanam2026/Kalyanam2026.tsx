@@ -1,8 +1,8 @@
 import "./Kalyanam2026.css";
 
-import img2 from "../../assets/images/kalyanam 2.jpeg";
-import img3 from "../../assets/images/kalyanam 3.jpeg";
-import img4 from "../../assets/images/kalyanam 4.jpeg";
+import img2 from "../../assets/images/kalyanam-2.jpeg";
+import img3 from "../../assets/images/kalyanam-3.jpeg";
+import img4 from "../../assets/images/kalyanam-4.jpeg";
 
 const Kalyanam2026 = () => {
   const images = [img2, img3, img4];
