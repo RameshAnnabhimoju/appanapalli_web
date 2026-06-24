@@ -123,6 +123,9 @@ const NavbarComponent = () => {
             Home
           </div>
           {/* <div className="navbar-link">Services</div> */}
+          <div className="navbar-link-mobile" onClick={() => navigate("/kalyanam-2026")}>
+            Kalyanam 2026
+          </div>
           <div className="navbar-link-mobile">Sevas & Darshanam</div>
           <div
             className="navbar-link-mobile"
